@@ -1,0 +1,35 @@
+#Winodws thumbnail cache files/ Archivos de caché en miniaturas
+#Archivo de bd para almacenar miniaturas de contenido multimedia
+Thumbs.db
+#Variante de thumbs.db --> puede ser cifrada
+Thumbs.db:encryptable
+#Archivos similares utilizados por el centro de medios de windows
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file/Archivo generado cuando ocurre un error
+*.stackdump
+
+#Folder config file
+#Archivo oculto por windows --> Guarda  configuraciones de carpetas
+[Dd]esktop.ini
+
+#windows short cuts/Extensión de archivos - Accesos directo en windows
+*lnk 
+
+# Windows Installer Files
+#Formato de archivo comprimido - Empaqueta archivos de instalacion
+*.cab
+#Archivo del instalador de winodws
+*.msi
+#Archivo de modulo de fusion, similar a .msi - componentes compartidos
+*.msm
+# Paquete de parches para aplicaciones ya instaladas
+*.msp
+
+#Recycle Bin used on file shares/Carpeta oculta archivos eliminados 
+$RECYCLE.BIN/
+
+#NODE JS/.env
+node_modules
+.env
