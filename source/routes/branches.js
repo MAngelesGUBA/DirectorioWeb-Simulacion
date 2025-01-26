@@ -23,7 +23,7 @@ router.get('/michoacan', async(req,res) =>{
 
 //Sucursal de pruebla
 router.get('/puebla', async(req, res) =>{
-  res.send("Sucursal de pueba");
+  res.send("Sucursal de puebla");
 });
 
 //Sucursal de ciudad de mexico
@@ -31,8 +31,8 @@ router.get('/ciudadMexico', async(req, res) =>{
   res.send("Sucursal de ciudad de mexico"); 
 }); 
 
-//Sucursal de Oxaca
-router.get('/oxaca', async(req,res) =>{
+//Sucursal de Oaxaca
+router.get('/oaxaca', async(req,res) =>{
   res.send("Sucursañ de Oxaca");
 });
 
