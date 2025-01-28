@@ -2,16 +2,14 @@
 const express = require('express');
 //importa middlewares
 const setupMiddlewares = require('./middlewares/index'); 
+//Importa modulos de las rutas.
+const branchesRoutes = require('./routes/branches'); 
+const adminRoutes = require('./routes/admin'); 
+const userRoutes = require('./routes/users'); 
 
 //----------------------------------------------------------
 //Instancia de express
 const app = express(); 
-
-//----------------------------------------------------------
-//Obtiene modulos de las rutas.
-const branchesRoutes = require('./routes/branches'); 
-const adminRoutes = require('./routes/admin'); 
-const userRoutes = require('./routes/users'); 
 
 
 //----------------------------------------------------------
