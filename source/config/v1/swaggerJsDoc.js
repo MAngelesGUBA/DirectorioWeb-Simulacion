@@ -27,7 +27,7 @@ const swagerOptions = {
   /* Archivos donde se encuentra la AIP y 
     las anotaciones OpenAPI para la doc en swagger
   */
-  apis:['./routes/*.js']
+  apis:['../routes/v1/*.js']
 };
 
 module.exports = swagerOptions;

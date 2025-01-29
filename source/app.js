@@ -3,9 +3,9 @@ const express = require('express');
 //importa middlewares
 const setupMiddlewares = require('./middlewares/index'); 
 //Importa modulos de las rutas.
-const branchesRoutes = require('./routes/branches'); 
-const adminRoutes = require('./routes/admin'); 
-const userRoutes = require('./routes/users'); 
+const branchesRoutes = require('./routes/v1/branches'); 
+const adminRoutes = require('./routes/v1/admin'); 
+const userRoutes = require('./routes/v1/users'); 
 
 //----------------------------------------------------------
 //Instancia de express
@@ -18,9 +18,9 @@ setupMiddlewares(app);
 
 //----------------------------------------------------------
 //Implementacion de rutas
-app.use('branches/',branchesRoutes);
-app.use('admin/',adminRoutes);
-app.use('user/', userRoutes); 
+app.use('v1/branches/',branchesRoutes);
+app.use('v1/admin/',adminRoutes);
+app.use('v1/user/', userRoutes); 
 
 //----------------------------------------------------------
 module.exports = app; 

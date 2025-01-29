@@ -6,7 +6,7 @@ doc de la API. Se basa en el archivo de conf pasado a JSON por para
 crear en una interfaz visual e interactiva*/
 const swaggerUi = require('swagger-ui-express');
 //Importa el archivo de conf para la API, contiene el obj con opciones de conf para generar la doc.
-const swaggerOptions = require('../config/swaggerJsDoc');
+const swaggerOptions = require('../config/v1/swaggerJsDoc');
 
 //Genera doc en JSON a partir las opciones del archivo de conf
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
