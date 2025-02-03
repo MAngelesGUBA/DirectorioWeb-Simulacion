@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "\"npx nodemon ./source/server.js\"", 
-    "build": "echo 'No build step needed for now'"
+    "build": "echo 'No build step needed'"
   },
   "keywords": [],
   "author": "",
