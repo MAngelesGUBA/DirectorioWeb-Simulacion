@@ -1,27 +1,35 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/getBranchesColima', async(req, res)=>{
+//Vista de los usuarios
+router.get('/getUserV-Extensions',async(req,res)=>{
+
+}); 
+
+
+//-------------Obtener extenciones de las sucursales --------------------
+
+router.get('/getExtensionsColima', async(req, res)=>{
   res.send("Colima Branches"); 
 });
 
-router.get('/getBranchesGuadalajara', async(req, res) =>{
+router.get('/getExtensionsGuadalajara', async(req, res) =>{
   res.send("Guadalajara Branches");
 });
 
-router.get('/getBranchesMichoacan', async(req, res)=>{
+router.get('/getExtensionsMichoacan', async(req, res)=>{
   res.send("Michoacan Branches");
 });
 
-router.get('/getBranchesPuebla', async(req, res)=>{
+router.get('/getExtensionsPuebla', async(req, res)=>{
   res.send("Puebla Branches ")
 });
 
-router.get('/getCiudadMexicoBranches', async(req,res)=>{
+router.get('/getExtensionsBranches', async(req,res)=>{
   res.send("Ciudad de Mexico Branches");
 })
 
-router.get('/getOaxaca', async(req, res)=>{
+router.get('/getExtensionsOaxaca', async(req, res)=>{
   res.send("Oaxaca branches"); 
 });
 
