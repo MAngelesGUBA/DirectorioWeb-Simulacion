@@ -1,36 +1,40 @@
 name: Vercel Production Deployment # Flujo de trabajo para desplegar a producción en Vercel
-run-name: ${{github.actor}} is deploying ${{github.repository}} to production 🔥 # Nombre personalizado al iniciarse
-env: # Secrets asociados al proyecto
+run-name: ${{ github.actor }} is deploying ${{ github.repository }} to production 🔥 # Mensaje personalizado al ejecutarse el workflow
+
+env: # Variables de entorno con los secretos del proyecto
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-concurrency: # Evita que dos despliegues se ejecuten al mismo tiempo
+
+concurrency: # Evita que dos despliegues a producción se ejecuten al mismo tiempo
   group: production
   cancel-in-progress: true
-on: # Eventos que activan el workflow
-  push: # Se activa con un push a la rama main
+
+on: # Eventos que activan este workflow
+  push: # Se activa cuando hay un push en la rama main
     branches:
       - main
-jobs: # Acciones que se realizan al iniciar el workflow
-  Deploy-Production: # Job para desplegar a producción en Vercel
-    runs-on: ubuntu-latest # Ejecutor del job
+
+jobs: # Definición de los trabajos dentro del workflow
+  Deploy-Production: # Job que realiza el despliegue a producción en Vercel
+    runs-on: ubuntu-latest # Sistema operativo donde se ejecuta el job
+
     steps: # Pasos dentro del job
-      - uses: actions/checkout@v2 # Clona el repositorio
-      - name: Update packages
-        run: npm update #Actualiza paquetes npm
+      - uses: actions/checkout@v2 # Clona el repositorio en el runner
+      
+      - name: Install dependencies
+        run: npm ci # Instala exactamente las dependencias especificadas en package-lock.json
+      
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest # Instala el CLI de Vercel para gestionar despliegues
-      - name: Update packages
-        run: npm update
+        run: npm install --global vercel@latest # Instala la CLI de Vercel para gestionar el despliegue
+      
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} # Obtiene la configuración del entorno de producción
-      - name: Update packages
-        run: npm update
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} # Descarga la configuración del entorno de producción
+      
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} # Construye el proyecto; si falla, el workflow se detiene
-      - name: Update packages
-        run: npm update
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} # Construye el proyecto antes del despliegue
+      
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} # Despliega los archivos ya construidos (prebuilt) para mayor eficiencia
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} # Despliega los archivos preconstruidos a producción en Vercel
 
 
 
