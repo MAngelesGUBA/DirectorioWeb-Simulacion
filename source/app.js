@@ -8,10 +8,17 @@ const setupMiddlewares = require('./middlewares/index');
 const generalRoutes = require('./routes/v1/general'); 
 const adminRoutes = require('./routes/v1/admin'); 
 const userRoutes = require('./routes/v1/users'); 
+//importa helmet al contexto del proyecto
+const helmet = require('helmet');  
 
 //----------------------------------------------------------
 //Instancia de express
 const app = express(); 
+
+//----------------------------------------------------------
+
+//Indica la ruta en donde se encuentran estilos y otros elementos - coloca un alias
+app.use('/assets', express.static(path.join(__dirname,'../public')));
 
 //----------------------------------------------------------
 //Define el motor de vistas
@@ -24,7 +31,6 @@ app.set('views', path.join(__dirname, './views'));
 //----------------------------------------------------------
 //Middlewares | pasa la instancia de express
 setupMiddlewares(app); 
-
 
 //----------------------------------------------------------
 //Implementacion de rutas

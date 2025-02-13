@@ -1,7 +1,20 @@
 doctype html
 html(lang='es')
   head
-    title Directorio
+    //Metada datos SEO ---------------
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name = 'description' content =seo.description )
+    meta(name='robots' content='NOINDEX, NOFOLLOW')
+
+    //Protocolo OPEN GRAPGH -----------
+    meta(property='og:type' content=seo.type)
+    meta(property='og:description' content=seo.description)
+    meta(property='og:site_name' conten=seo.site)
+    meta(property='og:locale' content=seo.locale)
+
+    //----------------------------------
+    title=`${title} | Directory`
   body
     include ../partials/header
     main

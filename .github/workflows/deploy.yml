@@ -35,8 +35,3 @@ jobs: # Definición de los trabajos dentro del workflow
       
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} # Despliega los archivos preconstruidos a producción en Vercel
-
-
-
-
-
